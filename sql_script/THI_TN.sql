@@ -3,6 +3,13 @@ create database THI_TN;
 
 use THI_TN;
 
+create table account (
+	USERID char(8) primary key,
+	PASS char(14),
+	ROLE char(10),
+	constraint chk_role check(ROLE = 'Truong' or ROLE = 'Coso1' or ROLE = 'Coso2' or ROLE = 'Giangvien' or ROLE = 'Sinhvien')
+);
+
 create table CoSo (
 	MACS char(3) primary key,
 	TENCS nvarchar(40) unique,
@@ -114,6 +121,7 @@ create table SinhVien (
 	NGAYSINH datetime,
 	DIACHI nvarchar(40),
 	MALOP char(8),
+	USER
 	constraint fk_sv_lop foreign key (MALOP) references Lop(MALOP)
 );
 
@@ -197,14 +205,7 @@ create table BangDiem (
 	constraint fk_bdiem_mh foreign key (MAMH) references MonHoc(MAMH)
 );
 
-create table account (
-	USERID char(8) primary key,
-	PASS char(14),
-	ROLE char(8),
-	constraint chk_role check(ROLE = 'Truong' or ROLE = 'Coso1' or ROLE = 'Coso2' or ROLE = 'Giangvien' or ROLE = 'Sinhvien'),
-	constraint fk_acc_sv foreign key (USERID) references SinhVien(MASV),
-	constraint fk_acc_gv foreign key (USERID) references GiaoVien(MAGV)
-);
+
 
 
 
@@ -219,3 +220,22 @@ insert into Khoa(TENKH,MACS) values (N'Mỹ thuật công nghiệp', 'CS2')
 insert into Khoa(TENKH,MACS) values (N'Khoa học ứng dụng', 'CS2')
 insert into Khoa(TENKH,MACS) values (N'Xã hội nhân văn', 'CS2')
 insert into Khoa(TENKH,MACS) values (N'Quản trị kinh doanh', 'CS2')
+
+insert into Lop(TENLOP, MAKH) values (N'Lớp CNTT 1', 'KHOA0001')
+insert into Lop(TENLOP, MAKH) values (N'Lớp CNTT 2', 'KHOA0001')
+insert into Lop(TENLOP, MAKH) values (N'Lớp TCNH 1', 'KHOA0002')
+insert into Lop(TENLOP, MAKH) values (N'Lớp TCNH 2', 'KHOA0002')
+insert into Lop(TENLOP, MAKH) values (N'Lớp TTK 1', 'KHOA0003')
+insert into Lop(TENLOP, MAKH) values (N'Lớp TTK 2', 'KHOA0003')
+insert into Lop(TENLOP, MAKH) values (N'Lớp DDT 1', 'KHOA0004')
+insert into Lop(TENLOP, MAKH) values (N'Lớp DDT 2', 'KHOA0004')
+insert into Lop(TENLOP, MAKH) values (N'Lớp MTCN 1', 'KHOA0005')
+insert into Lop(TENLOP, MAKH) values (N'Lớp MTCN 2', 'KHOA0005')
+insert into Lop(TENLOP, MAKH) values (N'Lớp KHUD 1', 'KHOA0006')
+insert into Lop(TENLOP, MAKH) values (N'Lớp KHUD 2', 'KHOA0006')
+insert into Lop(TENLOP, MAKH) values (N'Lớp KHNV 1', 'KHOA0007')
+insert into Lop(TENLOP, MAKH) values (N'Lớp KHNV 2', 'KHOA0007')
+insert into Lop(TENLOP, MAKH) values (N'Lớp QTKD 1', 'KHOA0008')
+insert into Lop(TENLOP, MAKH) values (N'Lớp QTKD 2', 'KHOA0008')
+
+INSERT INTO GiaoVien(HO, TEN, HOCVI, MAKH) VALUES (N'Trần', N'Hồng Nhung', N'Thạc sĩ', 'KHOA0001')

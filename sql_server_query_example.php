@@ -7,7 +7,7 @@
 <body>
 <?php
 
-$serverName = "BATISUOC\\BATISUOCSERVER"; //serverName\instanceName
+$serverName = "BATISUOC\BATISUOCSERVER"; //serverName\instanceName
 $connectionInfo = array( "Database" => "THI_TN", "UID" => "sa", "PWD" => "%!%03032", "CharacterSet" => "UTF-8");
 $conn = sqlsrv_connect( $serverName, $connectionInfo);
 

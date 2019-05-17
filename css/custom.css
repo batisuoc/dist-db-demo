@@ -81,7 +81,7 @@ h2.active {
 
 /* FORM TYPOGRAPHY*/
 
-input[type=button], input[type=submit], input[type=reset]  {
+#login-form input[type=button], input[type=submit], input[type=reset]  {
 	background-color: #56baed;
 	border: none;
 	color: white;
@@ -103,11 +103,11 @@ input[type=button], input[type=submit], input[type=reset]  {
 	transition: all 0.3s ease-in-out;
 }
 
-input[type=button]:hover, input[type=submit]:hover, input[type=reset]:hover  {
+#login-form input[type=button]:hover, input[type=submit]:hover, input[type=reset]:hover  {
 	background-color: #39ace7;
 }
 
-input[type=button]:active, input[type=submit]:active, input[type=reset]:active  {
+#login-form input[type=button]:active, input[type=submit]:active, input[type=reset]:active  {
 	-moz-transform: scale(0.95);
 	-webkit-transform: scale(0.95);
 	-o-transform: scale(0.95);
@@ -115,7 +115,7 @@ input[type=button]:active, input[type=submit]:active, input[type=reset]:active  
 	transform: scale(0.95);
 }
 
-input[type=text] {
+#login-form input[type=text] {
 	background-color: #f6f6f6;
 	border: none;
 	color: #0d0d0d;
@@ -136,12 +136,12 @@ input[type=text] {
 	border-radius: 5px 5px 5px 5px;
 }
 
-input[type=text]:focus {
+#login-form input[type=text]:focus {
 	background-color: #fff;
 	border-bottom: 2px solid #5fbae9;
 }
 
-input[type=text]:placeholder {
+#login-form input[type=text]:placeholder {
 	color: #cccccc;
 }
 
@@ -267,16 +267,18 @@ input[type=text]:placeholder {
 }
 
 #formFooter .text {
-	color: #CCCCCC;
+	color: #0000FF;
 }
 
 /*Sign in Form CSS*/
 
 /*.modal {font-family: Arial, Helvetica, sans-serif;}
 * {box-sizing: border-box;}*/
+/*--------------------------------------------------*/
+/*Student register form*/
 
 /* Full-width input fields */
-.modal input[type=text], input[type=password] {
+#student-regis .modal-content .container input[type=text], input[type=password], input[type=date] {
 	width: 100%;
 	padding: 15px;
 	margin: 5px 0 22px 0;
@@ -284,13 +286,32 @@ input[type=text]:placeholder {
 	border: none;
 	background: #f1f1f1;
 }
-
 /* Add a background color when the inputs get focus */
-.modal input[type=text]:focus, input[type=password]:focus {
+#student-regis .modal-content .container input[type=text]:focus, input[type=password]:focus, input[type=date]:focus {
 	background-color: #ddd;
 	outline: none;
 }
 
+
+/*--------------------------------------------------*/
+/*Teacher register form*/
+
+/* Full-width input fields */
+#teacher-regis .modal-content .container input[type=text], input[type=password] {
+	width: 100%;
+	padding: 15px;
+	margin: 5px 0 22px 0;
+	display: inline-block;
+	border: none;
+	background: #f1f1f1;
+}
+/* Add a background color when the inputs get focus */
+#teacher-regis .modal-content .container input[type=text]:focus, input[type=password]:focus {
+	background-color: #ddd;
+	outline: none;
+}
+
+/*--------------------------------------------------*/
 /* Set a style for all buttons */
 button {
 	background-color: #4CAF50;
@@ -343,7 +364,7 @@ button {
 	background-color: #fefefe;
 	margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
 	border: 1px solid #888;
-	width: 80%; /* Could be more or less, depending on screen size */
+	width: 40%; /* Could be more or less, depending on screen size */
 }
 
 /* Style the horizontal ruler */
@@ -378,6 +399,6 @@ hr {
 /* Change styles for cancel button and signup button on extra small screens */
 @media screen and (max-width: 300px) {
 	.cancelbtn, .signupbtn {
-		width: 100%;
+		width: 70%;
 	}
 }
