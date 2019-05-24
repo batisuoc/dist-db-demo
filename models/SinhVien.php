@@ -1,23 +1,21 @@
 <?php
 
-require_once 'Database.php';
+require_once '../libs/database.php';
 
-class SinhVien extends Database
+class SinhVien
 {
-	function __construct($macs)
+	private $base_id;
+
+	function __construct($baseid)
 	{
-		parent::__construct($macs);
+		$this->base_id = $baseid;
 	}
 
 	function insertSinhVien($arr_info)
 	{
 		$sql = "INSERT INTO SinhVien(HO, TEN, NGAYSINH, DIACHI, MALOP) 
 		VALUES (N'$arr_info['lastname']', N'$arr_info['firstname']', '$arr_info['dob']', N'$arr_info['address']', '$arr_info['malop']')";
-		$stmt = sqlsrv_query($this->db, $sql);
-		if ($stmt == false) {
-			die( print_r( sqlsrv_errors(), true) );
-		}
-		return $stmt;
+		
 	}
 
 	function getSV_ID($ho, $ten)
@@ -25,11 +23,7 @@ class SinhVien extends Database
 		$sql = "SELECT MASV
 				FROM SinhVien
 				WHERE HO = '$ho' AND TEN = '$ten'";
-		$stmt = sqlsrv_query($this->db, $sql);
-		if ($stmt == false) {
-			die( print_r( sqlsrv_errors(), true) );
-		}
-		return $stmt;
+		
 	}
 }
 

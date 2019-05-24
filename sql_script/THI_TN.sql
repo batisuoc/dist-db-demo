@@ -3,7 +3,7 @@ create database THI_TN;
 
 use THI_TN;
 
-create table account (
+create table Account (
 	USERID char(8) primary key,
 	PASS char(14),
 	ROLE char(10),
@@ -121,8 +121,9 @@ create table SinhVien (
 	NGAYSINH datetime,
 	DIACHI nvarchar(40),
 	MALOP char(8),
-	USER
-	constraint fk_sv_lop foreign key (MALOP) references Lop(MALOP)
+	USERID char(8),
+	constraint fk_sv_lop foreign key (MALOP) references Lop(MALOP),
+	constraint fk_sv_acc foreign key (USERID) references Account(USERID)
 );
 
 --auto increment table GiaoVien
@@ -149,10 +150,12 @@ end
 create table GiaoVien (
 	MAGV char(8) default dbo.AUTOID_GIAOVIEN() primary key,
 	HO nvarchar(40),
-	TEN nvarchar(10),
-	HOCVI varchar(40),
+	TEN nvarchar(90),
+	HOCVI nvarchar(40),
 	MAKH char(8),
-	constraint fk_gv_kh foreign key (MAKH) references Khoa(MAKH)
+	USERID char(8),
+	constraint fk_gv_kh foreign key (MAKH) references Khoa(MAKH),
+	constraint fk_gv_acc foreign key (USERID) references Account(USERID)
 );
 
 create table GiaoVien_DangKy (
@@ -205,9 +208,10 @@ create table BangDiem (
 	constraint fk_bdiem_mh foreign key (MAMH) references MonHoc(MAMH)
 );
 
-
-
-
+-- INSERT DATA
+insert into Account values ('lvdanh', '123456', 'Truong');
+insert into Account values ('nthien', '123456', 'Coso1');
+insert into Account values ('pvhuy', '123456', 'Coso2');
 
 insert into CoSo values ('CS1', N'Cơ sở 1', N'192 Hàm Tử')
 insert into CoSo values ('CS2', N'Cơ sở 2', N'32 Bùi Viện')

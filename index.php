@@ -1,10 +1,3 @@
-<?php
-
-require_once 'controller/RegisterController.php';
-$regisCtrl = new RegisterController('TCCN');
-
-?>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -48,11 +41,74 @@ $regisCtrl = new RegisterController('TCCN');
 	<!-- / End Sign in Form -->
 
 	<!-- Student register form -->
-	<?php require 'student_register_form.php'; ?>
+	<div id="student-regis" class="modal">
+		<span onclick="document.getElementById('student-regis').style.display='none'" class="close" title="Close Modal">&times;</span>
+		<form class="modal-content" action="register_action.php" method="post">
+			<div class="container">
+				<h1>Đăng kí tài khoản sinh viên</h1>
+				<p>Vui lòng điềm đầy đủ thông tin</p>
+				<hr>
+				<label for="lastname"><b>Họ</b></label>
+				<input type="text" placeholder="Nhập họ" name="lastname" required>
+
+				<label for="firstname"><b>Tên</b></label>
+				<input type="text" placeholder="Nhập tên" name="firstname" required>
+
+				<label for="psw"><b>Mật khẩu</b></label>
+				<input type="password" placeholder="Nhập mật khẩu" name="psw" required>
+
+				<label for="dob"><b>Ngày sinh</b></label>
+				<input type="date" placeholder="Nhập ngày sinh" name="dob" required>
+
+				<label for="address"><b>Địa chỉ</b></label>
+				<input type="text" placeholder="Nhập địa chỉ" name="address" required>
+
+				<label for="lop"><b>Lớp</b></label>
+				<select name="lop" required>
+					<option value="1"></option>
+				</select>
+
+				<div class="clearfix">
+					<button type="button" onclick="document.getElementById('student-regis').style.display='none'" class="cancelbtn">Hủy bỏ</button>
+					<button type="submit" class="signupbtn" name="regisStudent">Đăng kí</button>
+				</div>
+			</div>
+		</form>
+	</div>
 	<!-- End Student register form -->
 
 	<!-- Teacher register form -->
-	<?php require 'teacher_register_form.php'; ?>
+	<div id="teacher-regis" class="modal">
+		<span onclick="document.getElementById('teacher-regis').style.display='none'" class="close" title="Close Modal">&times;</span>
+		<form class="modal-content" action="register_action.php" method="post">
+			<div class="container">
+				<h1>Đăng kí tài khoản giáo viên</h1>
+				<p>Vui lòng điềm đầy đủ thông tin</p>
+				<hr>
+				<label for="lastname"><b>Họ</b></label>
+				<input type="text" placeholder="Nhập họ" name="lastname" required>
+
+				<label for="firstname"><b>Tên</b></label>
+				<input type="text" placeholder="Nhập tên" name="firstname" required>
+
+				<label for="psw"><b>Mật khẩu</b></label>
+				<input type="password" placeholder="Nhập mật khẩu" name="psw" required>
+
+				<label for="hocvi"><b>Học vị</b></label>
+				<input type="text" placeholder="Nhập học vị" name="hocvi" required>
+
+				<label for="khoa"><b>Khoa</b></label>
+				<select name="khoa" required>
+					<option value="1"></option>
+				</select>
+
+				<div class="clearfix">
+					<button type="button" onclick="document.getElementById('teacher-regis').style.display='none'" class="cancelbtn">Hủy bỏ</button>
+					<button type="submit" class="signupbtn" name="regisTeacher">Đăng kí</button>
+				</div>
+			</div>
+		</form>
+	</div>
 	<!-- / End Teacher register form -->
 
 	<script>
